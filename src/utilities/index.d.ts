@@ -1,0 +1,1 @@
+export type Prodotti = [{id: number, name: string, count: number}]
