@@ -1,6 +1,7 @@
 import { Telegraf } from "telegraf"
 import dotenv from "dotenv"
 import { selectAll, update, remove, recount } from "./utilities/db"
+
 dotenv.config()
 
 const bot = new Telegraf(process.env.BOT_TOKEN!)
@@ -23,7 +24,11 @@ bot.command("add", async(ctx) => {
   const message = ctx.message.text.split(" ")
   message.shift()
   try {
-    void update(message[0].toLowerCase(), Math.abs(Number(message[1])))
+    if (message[1]) {
+      void update(message[0].toLowerCase(), Math.abs(Number(message[1])))
+    } else {
+      void update(message[0].toLowerCase(), 1)
+    }
   } catch (err) {
     void ctx.reply(`error: ${err}`)
   }
@@ -33,7 +38,11 @@ bot.command("delete", async(ctx) => {
   const message = ctx.message.text.split(" ")
   message.shift()
   try {
-    void update(message[0].toLowerCase(), -1 * Math.abs(Number(message[1])))
+    if (message[1]) {
+      void update(message[0].toLowerCase(), -1 * Math.abs(Number(message[1])))
+    } else {
+      void update(message[0].toLowerCase(), -1)
+    }
   } catch (err) {
     void ctx.reply(`error: ${err}`)
   }
@@ -53,7 +62,11 @@ bot.command("inventory", async(ctx) => {
   const message = ctx.message.text.split(" ")
   message.shift()
   try {
-    void selectAll()
+    const inventory = await selectAll()
+    for (let i = 0; i < inventory.length; i++) {
+      const data = String(Object.values(inventory[i])[0]).slice(1, -1).split(",").join(": ")
+      void ctx.reply(data)
+    }
   } catch (err) {
     void ctx.reply(`error: ${err}`)
   }
