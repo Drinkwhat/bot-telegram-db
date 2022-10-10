@@ -17,11 +17,27 @@ app.get("/", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "../frontend/index.html"))
 })
 
-app.post("/", (req: Request, res: Response) => {
+app.post("/add", (req: Request, res: Response) => {
   if (!Number(req.body.AddProductNumber)) {
     void update(req.body.AddProductName, 1)
   } else {
     void update(req.body.AddProductName, Number(req.body.AddProductNumber))
+  }
+})
+
+app.post("/recount", (req: Request, res: Response) => {
+  void recount(req.body.RecountProductName, Number(req.body.RecountProductNumber))
+})
+
+app.post("/remove", (req: Request, res: Response) => {
+  void remove(req.body.RemoveProductName)
+})
+
+app.post("/delete", (req: Request, res: Response) => {
+  if (!Number(req.body.DeleteProductNumber)) {
+    void update(req.body.DeleteProductName, -1)
+  } else {
+    void update(req.body.DeleteProductName, -1 * Math.abs(Number(req.body.DeleteProductNumber)))
   }
 })
 

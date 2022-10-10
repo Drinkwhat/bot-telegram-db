@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ciao</title>
+  <title>BOT TELEGRAM DB</title>
 </head>
 <body>
-  <form action="/" method="post">
+  <form action="/add" method="post">
     <fieldset>
       <legend>AGGIUNGI DATI</legend>
       <div>
@@ -18,6 +18,56 @@
         <label for="productNumber">Numero di prodotto</label>
         <input type="number" name="AddProductNumber" id="AddProductNumber">
       </div>  <br>
+      <div>
+        <input type="reset" value="Reset">
+        <input type="submit" name="submit" value="Invia">
+      </div> 
+    </fieldset>
+  </form> <br>
+
+  <form action="/delete" method="post">
+    <fieldset>
+      <legend>TOGLIERE PRODOTTO</legend>
+      <div>
+        <label for="productName">Nome del prodotto</label>
+        <input type="text" name="DeleteProductName" id="DeleteProductName">
+      </div> <br>
+      <div>
+        <label for="productNumber">Numero di prodotto</label>
+        <input type="number" name="DeleteProductNumber" id="DeleteProductNumber">
+      </div> <br>
+      <div>
+        <input type="reset" value="Reset">
+        <input type="submit" name="submit" value="Invia">
+      </div> 
+    </fieldset>
+  </form> <br>
+  
+  <form action="/recount" method="post">
+    <fieldset>
+      <legend>RICONTEGGIO PRODOTTO</legend>
+      <div>
+        <label for="productName">Nome del prodotto</label>
+        <input type="text" name="RecountProductName" id="RecountProductName">
+      </div> <br>
+      <div>
+        <label for="productNumber">Numero di prodotti</label>
+        <input type="number" name="RecountProductNumber" id="RecountProductNumber">
+      </div> <br>
+      <div>
+        <input type="reset" value="Reset">
+        <input type="submit" name="submit" value="Invia">
+      </div> 
+    </fieldset>
+  </form> <br>
+
+  <form action="/remove" method="post">
+    <fieldset>
+      <legend>ELIMINARE PRODOTTO</legend>
+      <div>
+        <label for="productName">Nome del prodotto</label>
+        <input type="text" name="RemoveProductName" id="RemoveProductName">
+      </div> <br>
       <div>
         <input type="reset" value="Reset">
         <input type="submit" name="submit" value="Invia">

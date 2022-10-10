@@ -1,6 +1,6 @@
 {
   "name": "bot-telegram-db",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "telegram bot made in TS with the 'telegraf' library that manipulates an SQL database, postgreSQL, designed for an inventory",
   "main": "src/app.ts",
   "scripts": {
@@ -11,20 +11,21 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.20.1",
+    "debug": "^4.3.4",
     "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "express-validator": "^6.14.2",
     "pg": "^8.8.0",
-    "telegraf": "^4.9.2",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.8.4"
+    "telegraf": "^4.9.2"
   },
   "devDependencies": {
     "@soluzioni-futura/eslint-config-soluzioni-futura": "^2.2.0",
     "@types/express": "^4.17.14",
     "@types/node": "^18.8.3",
     "@types/pg": "^8.6.5",
-    "eslint": "^8.24.0"
+    "eslint": "^8.24.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
   },
   "repository": {
     "type": "git",
@@ -33,11 +34,10 @@
   "keywords": [
     "bot",
     "telegram",
-    "postrSQL",
+    "postgreSQL",
     "SQL",
     "telegraf",
-    "typescript",
-    "ts-node"
+    "typescript"
   ],
   "bugs": {
     "url": "https://github.com/Drinkwhat/bot-telegram-db/issues"
