@@ -1,12 +1,17 @@
 import { Telegraf } from "telegraf"
 import dotenv from "dotenv"
+import Debug from "debug"
 import { selectAll, update, remove, recount } from "./utilities/db"
+
+const debug = Debug("app")
+Debug.enable("*")
 
 dotenv.config()
 
 const bot = new Telegraf(process.env.BOT_TOKEN!)
 
 function startBot(): void {
+  debug("bot started")
   void bot.launch()
 }
 
