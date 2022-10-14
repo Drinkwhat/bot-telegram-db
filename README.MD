@@ -9,6 +9,7 @@ Project is created with:
 * telegraf
 * express
 * postgres
+* docker
 
 ## Setup
 * Add bot token and chat id in `.env` file.
@@ -23,4 +24,4 @@ Project is created with:
 * Tond28 [github](https://github.com/Tond28)
 
 ## Coming soon...
-docker implement
+select in index.js

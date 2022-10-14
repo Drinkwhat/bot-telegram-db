@@ -1,15 +1,27 @@
+version: '3.8'
 services:
-  database:
-    image: postgres
-    container_name: ${DB_HOST}
+
+  api:
+    container_name: bot_telegram_db_api
     restart: always
+    build: .
+    depends_on:
+      - postgres
     ports:
-      - ${DB_PORT}:${DB_PORT}
-    volumes:
-      - pgdata:/var/lib/postgresql/data
+      - "${PORT}:${PORT}"
+
+  postgres:
+    container_name: ${DB_HOST}
+    image: postgres:14.1-alpine
+    restart: always
+
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_NAME}
-volumes:
-  pgdata:
+      
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql

@@ -1,10 +1,10 @@
 {
   "name": "bot-telegram-db",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "telegram bot made in TS with the 'telegraf' library that manipulates an SQL database, postgreSQL, designed for an inventory",
   "main": "src/app.ts",
   "scripts": {
-    "build": "npx tsc",
+    "build": "tsc",
     "start": "concurrently \"node dist/index.js\" \"node dist/app.js\""
   },
   "author": "Drinkwhat",
@@ -37,7 +37,8 @@
     "postgreSQL",
     "SQL",
     "telegraf",
-    "typescript"
+    "typescript",
+    "docker"
   ],
   "bugs": {
     "url": "https://github.com/Drinkwhat/bot-telegram-db/issues"
